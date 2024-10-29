@@ -10,7 +10,8 @@ import CartDropDownMenu from './CartDropDownMenu.vue'
 defineProps<{
   isVisible: boolean;
   toggleCart: () => void;
-  productCount: number
+  shoppingCart: number;
+  deleteProduct: () => void
 }>()
 </script>
 
@@ -57,7 +58,7 @@ defineProps<{
         <button @click="toggleCart()">
           <img  class="h-4 w-auto m-4 " v-bind:src="cart" />
         </button>
-        <CartDropDownMenu :isVisible="isVisible" :productCount="productCount"/>
+        <CartDropDownMenu :deleteProduct="deleteProduct" :isVisible="isVisible" :shoppingCart="shoppingCart"/>
 
         <img class="h-12 w-auto " v-bind:src="avatar" />
       </div>

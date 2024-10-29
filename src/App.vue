@@ -24,12 +24,13 @@ const minusOne = () => {
 }
 
 
-//const deleteProduct = (index: number) => {
-//shoppingCart.value.splice(index, 1)
-//}
+const deleteProduct = () => {
+shoppingCart.value = 0
+}
+
 </script>
 <template>
-  <MainNavbar :toggleCart="toggleCart" :isVisible="isVisible" :productCount="productCount"/>
+  <MainNavbar :deleteProduct="deleteProduct" :toggleCart="toggleCart" :isVisible="isVisible" :shoppingCart="shoppingCart"/>
   <ProductShowcase
     :productCount="productCount"
     :plusOne="plusOne"
