@@ -3,16 +3,13 @@ import { ref } from 'vue'
 import MainNavbar from './components/MainNavbar.vue';
 import ProductShowcase from './components/ProductShowcase.vue';
 
-const name = ref('Cool shoes')
-const shoppingCart = ref<string[]>([])
+const shoppingCart = ref(0)
 const productCount = ref(0)
 
 const addProduct = () => {
-  if (productCount.value !== 0) {
-    console.log(shoppingCart.value.length)
-    //productCount.value = 0;
-    shoppingCart.value.push('shoe')
-  }
+
+  shoppingCart.value = shoppingCart.value + productCount.value;
+  productCount.value = 0;
 }
 
 const plusOne = () => {
@@ -22,25 +19,16 @@ const plusOne = () => {
     productCount.value = productCount.value -1;
   }
 
-const deleteProduct = (index: number) => {
-  shoppingCart.value.splice(index, 1)
-}
+//const deleteProduct = (index: number) => {
+  //shoppingCart.value.splice(index, 1)
+//}
 </script>
 
 <template>
 
     <MainNavbar />
-    <ProductShowcase :productCount="productCount" :plusOne="plusOne" :minusOne="minusOne"/>
-    <h1 class="text-2xl">Shoes {{ name }}</h1>
-    <span>
-      <ul>
-        <li v-for="(product, index) in shoppingCart" :key="product">
-          <span> {{ product }} {{ index }} </span>
-          <button @click="deleteProduct(index)">Remove</button>
-        </li>
-      </ul>
-      <button @click="addProduct">Add to Cart</button>
-    </span>
+    <ProductShowcase :productCount="productCount" :plusOne="plusOne" :minusOne="minusOne" :addProduct="addProduct"/>
+
 </template>
 
 <style scoped>

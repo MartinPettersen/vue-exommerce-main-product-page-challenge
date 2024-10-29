@@ -9,6 +9,7 @@ import { defineProps } from 'vue';
     productCount: number;
     plusOne: () => void;
     minusOne: () => void;
+    addProduct: () => void;
   }>();
 
 
@@ -52,7 +53,7 @@ import { defineProps } from 'vue';
               <img class="h-3 w-auto hover:cursor-pointer" v-bind:src="plus" />
             </button>
           </div>
-          <button
+          <button @click="props.addProduct()"
             class="bg-[color:hsl(26,100%,55%)] flex-grow hover:bg-[color:hsl(25,100%,94%)] rounded-md"
           >
             Add to Cart
