@@ -1,22 +1,37 @@
 <script setup lang="ts" >
 import { ref } from 'vue'
-      const name = ref("John Doe");
-      const shoppingCart = ref([]);
-      const productCount = ref(0);
+      const name = ref("Cool shoes");
+      const shoppingCart = ref<string[]>([]);
+      const productCount = ref(1);
 
 
   const addProduct = () => {
-    productCount = 0;
+    if (productCount.value !== 0 ){
+      console.log(shoppingCart.value.length)
+      //productCount.value = 0;
+      shoppingCart.value.push("shoe")
+    }
+  }
+
+  const deleteProduct = (index: number) => {
+    shoppingCart.value.splice(index, 1)
   }
 
 </script>
 
 <template>
-  <h1>Shoes {{ name }}</h1>
+  <h1 class="text-2xl">Shoes {{ name }}</h1>
   <span>
     <ul>
-      <li v-for="product in shoppingCart" :key="product"> {{ product }}</li>
+      <li v-for="(product, index) in shoppingCart" :key="product">
+        <span>
+          {{ product }}  {{  index }}
+        </span>
+        <button @click="deleteProduct(index)">Remove</button>
+
+      </li>
     </ul>
+    <button @click="addProduct">Add to Cart</button>
   </span>
 </template>
 
