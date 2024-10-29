@@ -1,34 +1,41 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import MainNavbar from './components/MainNavbar.vue';
-import ProductShowcase from './components/ProductShowcase.vue';
+import MainNavbar from './components/MainNavbar.vue'
+import ProductShowcase from './components/ProductShowcase.vue'
 
 const shoppingCart = ref(0)
 const productCount = ref(0)
+const isVisible = ref(false)
 
 const addProduct = () => {
-
-  shoppingCart.value = shoppingCart.value + productCount.value;
-  productCount.value = 0;
+  shoppingCart.value = shoppingCart.value + productCount.value
+  productCount.value = 0
 }
 
+const toggleCart = () => {
+  console.log("isVisible.value",isVisible.value)
+  isVisible.value = !isVisible.value
+}
 const plusOne = () => {
-    productCount.value = productCount.value +1;
-  }
-  const minusOne = () => {
-    productCount.value = productCount.value -1;
-  }
+  productCount.value = productCount.value + 1
+}
+const minusOne = () => {
+  productCount.value = productCount.value - 1
+}
+
 
 //const deleteProduct = (index: number) => {
-  //shoppingCart.value.splice(index, 1)
+//shoppingCart.value.splice(index, 1)
 //}
 </script>
-
 <template>
-
-    <MainNavbar />
-    <ProductShowcase :productCount="productCount" :plusOne="plusOne" :minusOne="minusOne" :addProduct="addProduct"/>
-
+  <MainNavbar :toggleCart="toggleCart" :isVisible="isVisible" :productCount="productCount"/>
+  <ProductShowcase
+    :productCount="productCount"
+    :plusOne="plusOne"
+    :minusOne="minusOne"
+    :addProduct="addProduct"
+  />
 </template>
 
 <style scoped>

@@ -2,7 +2,16 @@
 import logo from '@/assets/logo.svg'
 import cart from '@/assets/icon-cart.svg'
 import avatar from '@/assets/image-avatar.png'
+import { defineProps } from 'vue'
+import CartDropDownMenu from './CartDropDownMenu.vue'
 
+//import type { Ref } from 'vue';
+
+defineProps<{
+  isVisible: boolean;
+  toggleCart: () => void;
+  productCount: number
+}>()
 </script>
 
 <template>
@@ -44,8 +53,12 @@ import avatar from '@/assets/image-avatar.png'
         </div>
       </div>
 
-      <div class="flex px-8 flex-row items-center">
-        <img class="h-4 w-auto m-4 " v-bind:src="cart" />
+      <div class="flex px-8 flex-row items-center relative">
+        <button @click="toggleCart()">
+          <img  class="h-4 w-auto m-4 " v-bind:src="cart" />
+        </button>
+        <CartDropDownMenu :isVisible="isVisible" :productCount="productCount"/>
+
         <img class="h-12 w-auto " v-bind:src="avatar" />
       </div>
     </nav>
