@@ -20,7 +20,7 @@
           'opacity-30': props.selectedImage === props.image,
           'opacity-100': props.selectedImage !== props.image,
         }"
-        class="h-16 w-auto rounded-lg"
+        class="h-16 w-auto rounded-md"
         v-bind:src="props.thumbnail"
       />
     </div>

@@ -2,6 +2,16 @@
 import plus from '@/assets/icon-plus.svg'
 import minus from '@/assets/icon-minus.svg'
 import ImageCaroussell from './ImageCaroussell.vue';
+import { defineProps } from 'vue';
+  //import type { Ref } from 'vue';
+
+  const props = defineProps<{
+    productCount: number;
+    plusOne: () => void;
+    minusOne: () => void;
+  }>();
+
+
 </script>
 
 <template>
@@ -33,12 +43,12 @@ import ImageCaroussell from './ImageCaroussell.vue';
           <div
             class="flex flex-row items-center justify-center px-3 rounded-md space-x-4 bg-[color:hsl(223,64%,98%)]"
           >
-            <button class="py-4 px-2">
+            <button @click="props.minusOne()" class="py-4 px-2">
               <img class="h-1 w-auto hover:cursor-pointer" v-bind:src="minus" />
             </button>
 
-            <p>0</p>
-            <button class="py-4 px-2">
+            <p>{{ props.productCount }}</p>
+            <button @click="props.plusOne()" class="py-4 px-2">
               <img class="h-3 w-auto hover:cursor-pointer" v-bind:src="plus" />
             </button>
           </div>

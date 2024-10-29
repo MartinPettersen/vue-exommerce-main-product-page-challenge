@@ -5,7 +5,7 @@ import ProductShowcase from './components/ProductShowcase.vue';
 
 const name = ref('Cool shoes')
 const shoppingCart = ref<string[]>([])
-const productCount = ref(1)
+const productCount = ref(0)
 
 const addProduct = () => {
   if (productCount.value !== 0) {
@@ -15,6 +15,13 @@ const addProduct = () => {
   }
 }
 
+const plusOne = () => {
+    productCount.value = productCount.value +1;
+  }
+  const minusOne = () => {
+    productCount.value = productCount.value -1;
+  }
+
 const deleteProduct = (index: number) => {
   shoppingCart.value.splice(index, 1)
 }
@@ -23,7 +30,7 @@ const deleteProduct = (index: number) => {
 <template>
 
     <MainNavbar />
-    <ProductShowcase />
+    <ProductShowcase :productCount="productCount" :plusOne="plusOne" :minusOne="minusOne"/>
     <h1 class="text-2xl">Shoes {{ name }}</h1>
     <span>
       <ul>
