@@ -37,7 +37,7 @@ defineProps<{
           >
           <a
           href="index.html"
-          class="py-16 px-8 text-[color:hsl(219,9%,45%)] hover:text-[color:hsl(0,0%,0%)]"
+          class="py-16 px-8 text-[color:hsl(219,9%,45%)] hover:text-[color:hsl(0,0%,0%)] border-b-4 border-[color:hsl(26,100%,55%)]"
           >Women</a
           >
           <a
