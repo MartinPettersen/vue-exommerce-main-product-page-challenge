@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import MainNavbar from './components/MainNavbar.vue';
+import ProductShowcase from './components/ProductShowcase.vue';
 
 const name = ref('Cool shoes')
 const shoppingCart = ref<string[]>([])
@@ -20,17 +21,19 @@ const deleteProduct = (index: number) => {
 </script>
 
 <template>
-  <MainNavbar />
-  <h1 class="text-2xl">Shoes {{ name }}</h1>
-  <span>
-    <ul>
-      <li v-for="(product, index) in shoppingCart" :key="product">
-        <span> {{ product }} {{ index }} </span>
-        <button @click="deleteProduct(index)">Remove</button>
-      </li>
-    </ul>
-    <button @click="addProduct">Add to Cart</button>
-  </span>
+
+    <MainNavbar />
+    <ProductShowcase />
+    <h1 class="text-2xl">Shoes {{ name }}</h1>
+    <span>
+      <ul>
+        <li v-for="(product, index) in shoppingCart" :key="product">
+          <span> {{ product }} {{ index }} </span>
+          <button @click="deleteProduct(index)">Remove</button>
+        </li>
+      </ul>
+      <button @click="addProduct">Add to Cart</button>
+    </span>
 </template>
 
 <style scoped>
