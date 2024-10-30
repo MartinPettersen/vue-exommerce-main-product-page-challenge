@@ -19,8 +19,10 @@ const toggleCart = () => {
 const plusOne = () => {
   productCount.value = productCount.value + 1
 }
-const minusOne = () => {
-  productCount.value = productCount.value - 1
+const minusOne = () =>{
+  if (productCount.value > 0) {
+    productCount.value = productCount.value - 1
+  }
 }
 
 
