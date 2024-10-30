@@ -16,9 +16,9 @@ import { defineProps } from 'vue';
 </script>
 
 <template>
-  <section class="py-20 flex items-center justify-center">
-    <div class="flex flex-row w-[68%]">
-      <div class="w-[50%]">
+  <section class="mb-6 md:mb-0 md:py-20 flex items-center justify-center">
+    <div class="flex flex-col items-center justify-center md:flex-row w-full md:w-[68%]">
+      <div class="md:w-[50%] mb-4 md:mb-0">
         <ImageCaroussell />
       </div>
 
