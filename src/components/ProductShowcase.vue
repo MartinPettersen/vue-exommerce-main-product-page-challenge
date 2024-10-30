@@ -22,7 +22,7 @@ import { defineProps } from 'vue';
         <ImageCaroussell />
       </div>
 
-      <div class="w-[50%] flex flex-col space-y-4">
+      <div class="w-[80%] md:w-[50%] flex flex-col space-y-4">
         <h3 class="text-[color:hsl(219,9%,45%)]">SNEAKER COMPANY</h3>
 
         <h1 class="font-extrabold text-4xl">Fall Limited Edition Sneaker</h1>
@@ -31,16 +31,19 @@ import { defineProps } from 'vue';
           Featuring a durable outer sole, they'll withstand everything the
           weather can offer
         </p>
-        <div class="flex flex-row space-x-2">
-          <p class="font-extrabold text-lg">$125.00</p>
-          <p
+        <div class="flex flex-row md:flex-col ">
+
+          <div class="flex flex-row space-x-2 mr-4">
+            <p class="font-extrabold text-lg">$125.00</p>
+            <p
             class="bg-black text-white flex items-center justify-center px-1 rounded-md"
-          >
+            >
             50%
           </p>
         </div>
         <p class="text-[color:hsl(219,9%,45%)] line-through">$250.00</p>
-        <div class="flex flex-row space-x-2 ">
+      </div>
+        <div class="flex flex-col md:flex-row md:space-x-2 ">
           <div
             class="flex flex-row items-center justify-center px-3 rounded-md space-x-4 bg-[color:hsl(223,64%,98%)]"
           >
@@ -54,7 +57,7 @@ import { defineProps } from 'vue';
             </button>
           </div>
           <button @click="props.addProduct()"
-            class="bg-[color:hsl(26,100%,55%)] flex-grow hover:bg-[color:hsl(25,100%,94%)] rounded-md"
+            class="bg-[color:hsl(26,100%,55%)] mt-4 md:mt-0 py-3 md:py-0 flex-grow hover:bg-[color:hsl(25,100%,94%)] rounded-md"
           >
             Add to Cart
           </button>
