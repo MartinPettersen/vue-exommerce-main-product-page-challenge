@@ -45,9 +45,9 @@ import { defineProps } from 'vue';
       </div>
         <div class="flex flex-col md:flex-row md:space-x-2 ">
           <div
-            class="flex flex-row items-center justify-center px-3 rounded-md space-x-4 bg-[color:hsl(223,64%,98%)]"
+            class="flex flex-row items-center justify-evenly md:justify-center px-3 rounded-md space-x-4 bg-[color:hsl(223,64%,98%)]"
           >
-            <button @click="props.minusOne()" class="py-4 px-2">
+            <button @click="props.minusOne()" class="py-4 px-2 flex">
               <img class="h-1 w-auto hover:cursor-pointer" v-bind:src="minus" />
             </button>
 
