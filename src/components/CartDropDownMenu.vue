@@ -21,7 +21,7 @@ defineProps<{
     <div class="border-b-2 p-4">
       <h3 class="font-bold">Cart</h3>
     </div>
-    <div class="flex items-center justify-center w-full h-[300px]">
+    <div class="flex items-center justify-center w-full h-[200px] md:h-[300px]">
       <div v-if="shoppingCart === 0">
         <p class="font-bold text-[color:hsl(219,9%,45%)]">Your Cart is Empty</p>
       </div>

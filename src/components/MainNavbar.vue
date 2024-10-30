@@ -5,6 +5,8 @@ import cart from '@/assets/icon-cart.svg'
 import avatar from '@/assets/image-avatar.png'
 import { defineProps } from 'vue'
 import CartDropDownMenu from './CartDropDownMenu.vue'
+import MobileMenu from './MobileMenu.vue'
+
 
 import { ref, onMounted, onUnmounted } from 'vue'
 
@@ -16,6 +18,8 @@ defineProps<{
 }>()
 
 const isMobile = ref(window.innerWidth < 768)
+const isMobileMenuVisible = ref(false)
+
 
 const updateIsMobile = () => {
   isMobile.value = window.innerWidth < 768
@@ -29,6 +33,11 @@ onUnmounted(() => {
   window.removeEventListener('resize', updateIsMobile)
 })
 
+  const toggleMenu = () => {
+    console.log("isMobileMenuVisible.value",isMobileMenuVisible.value)
+    isMobileMenuVisible.value = !isMobileMenuVisible.value
+  }
+
 </script>
 
 <template>
@@ -39,8 +48,11 @@ onUnmounted(() => {
     >
     <div class="flex flex-row">
 
-      <img v-if="isMobile" class="h-4 w-auto m-6" v-bind:src="menu" />
+      <button v-if="isMobile" @click="toggleMenu()">
 
+        <img  class="h-4 w-auto m-6" v-bind:src="menu" />
+      </button>
+      <MobileMenu :isVisible="isMobileMenuVisible" :toggleMenu="toggleMenu"/>
 
       <img class="h-4 md:h-10 w-auto mt-6 md:mt-12" v-bind:src="logo" />
 
