@@ -16,7 +16,7 @@ defineProps<{
 <template>
   <div
     v-if="isVisible"
-    class="absolute top-full mt-1 bg-white w-[200%] drop-shadow-2xl"
+    class="absolute z-20 top-full mt-1 bg-white w-[200%] rounded-lg drop-shadow-2xl"
   >
     <div class="border-b-2 p-4">
       <h3 class="font-bold">Cart</h3>
@@ -63,4 +63,14 @@ defineProps<{
   left: -30%;
   top: 66%;
 }
+
+@media (max-width: 768px) {
+  .absolute {
+    top: 96%;
+    width: 200%;
+    left: -14%;
+  transform: translateX(-50%);
+  }
+}
+
 </style>

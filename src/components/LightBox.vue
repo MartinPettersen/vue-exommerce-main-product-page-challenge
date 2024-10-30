@@ -114,5 +114,4 @@ const minusOne = () => {
 </template>
 
 <style scoped>
-/* Optional: Add any specific styling you need here */
 </style>
